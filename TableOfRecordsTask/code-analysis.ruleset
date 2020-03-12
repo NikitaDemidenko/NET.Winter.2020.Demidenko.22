@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RuleSet Name="Custom Rulset" Description="Custom Rulset" ToolsVersion="14.0">
+    <Rules AnalyzerId="Microsoft.Analyzers.ManagedCodeAnalysis" RuleNamespace="Microsoft.Rules.Managed">
+        <Rule Id="CA1303" Action="None" /><!-- Do not pass literals as localized parameters -->
+        <Rule Id="CA1801" Action="Info" /><!-- Review unused parameters -->
+		<Rule Id="CA1052" Action="Error" /><!-- Static holder types should be Static or NotInheritable -->
+    </Rules>
+	<Rules AnalyzerId="StyleCop.Analyzers" RuleNamespace="StyleCop.Analyzers">
+		<Rule Id="SA1200" Action="Error" /><!-- SA1200UsingDirectivesMustBePlacedCorrectly -->
+		<Rule Id="SA1400" Action="Error" /><!-- SA1400AccessModifierMustBeDeclared -->
+		<Rule Id="SA1633" Action="None" /><!-- SA1633FileMustHaveHeader -->
+	</Rules>
+</RuleSet>
