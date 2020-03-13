@@ -22,6 +22,11 @@ namespace TableOfRecordsTask
             Validation(records, writer);
 
             var columns = typeof(T).GetProperties();
+            if (columns.Length == 0)
+            {
+                throw new ArgumentException($"{nameof(records)} doesn't have public properties.");
+            }
+
             var stringsTable = new List<string[]>();
             var maxLengthsOfColumns = new List<int>();
             maxLengthsOfColumns = columns.Select(c => c.Name.Length).ToList();
@@ -64,6 +69,11 @@ namespace TableOfRecordsTask
             writer.WriteLine(line + "|");
             maxLengthsOfColumns.ForEach(length => writer.Write("+-" + new string('-', length) + '-'));
             writer.WriteLine("+");
+
+            if (!records.Any())
+            {
+                return;
+            }
 
             foreach (var row in stringsTable)
             {
